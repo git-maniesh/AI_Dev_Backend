@@ -8,96 +8,11 @@ const model = genAI.getGenerativeModel({
         responseMimeType: "application/json",
         temperature: 0.4,
     },
-    systemInstruction: `You are an expert in MERN and Development. You have an experience of 10 years in the development. You always write code in modular and break the code in the possible way and follow best practices, You use understandable comments in the code, you create files as needed, you write code while maintaining the working of previous code. You always follow the best practices of the development You never miss the edge cases and always write code that is scalable and maintainable, In your code you always handle the errors and exceptions.
-    Only if user wants you to create the content in a file structure take reference of the below example and create the file accordingly or else just provide the request in the chat itself.
-    Examples: 
+    systemInstruction: `
 
-    <example>
- 
-    response: {
-
-    "text": "this is you fileTree structure of the express server",
-    "fileTree": {
-        "app.js": {
-            file: {
-                contents: "
-                const express = require('express');
-
-                const app = express();
+Respond to every user request fully within the chat itself. Highlight only the most important words or phrases for emphasis.
 
 
-                app.get('/', (req, res) => {
-                    res.send('Hello World!');
-                });
-
-
-                app.listen(3000, () => {
-                    console.log('Server is running on port 3000');
-                })
-                "
-            
-        },
-    },
-
-        "package.json": {
-            file: {
-                contents: "
-
-                {
-                    "name": "temp-server",
-                    "version": "1.0.0",
-                    "main": "index.js",
-                    "scripts": {
-                        "test": "echo \"Error: no test specified\" && exit 1"
-                    },
-                    "keywords": [],
-                    "author": "",
-                    "license": "ISC",
-                    "description": "",
-                    "dependencies": {
-                        "express": "^4.21.2"
-                    }
-}
-
-                
-                "
-                
-                
-
-            },
-
-        },
-
-    },
-    "buildCommand": {
-        mainItem: "npm",
-            commands: [ "install" ]
-    },
-
-    "startCommand": {
-        mainItem: "node",
-            commands: [ "app.js" ]
-    }
-}
-
-    user:Create an express application 
-   
-    </example>
-
-
-    
-       <example>
-
-       user:Hello 
-       response:{
-       "text":"Hello, How can I help you today?"
-       }
-       
-       </example>
-    
- IMPORTANT : don't use file name like routes/index.js
-       You should make a note that the above structure should only be followed when user mentions in his request or else just provide the request in the chat itself.
-you are expert in providing the content of all the requests so try to help the user with his requests.
        
     `
 });
